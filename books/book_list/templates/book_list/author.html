@@ -1,0 +1,17 @@
+{% extends 'book_list/navbar.html' %} {% load static %} {% block content %}
+<div class="container min-vw-100 text-center" style="margin: 14.9rem 0">
+  <p class="fs-2 fw-bolder mt-3">Author: {{author.name}}</p>
+  <ul class="list-group text-decoration-none fs-3 fw-bold text-center w-50 mx-auto">
+    {%for book in books %}
+    <li class="list-group-item">
+      <a class="text-decoration-none text-black-50" href="{% url 'book' book.pk %}"
+        >{{book.name}}</a
+      >
+    </li>
+    {%endfor%}
+  </ul>
+  <div class="btn btn-primary text-white btn-lg mt-2">
+    <a href="{% url 'books' %}" class="text-decoration-none text-white">Back to bookList</a>
+  </div>
+</div>
+{% endblock %}

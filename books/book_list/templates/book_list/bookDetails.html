@@ -1,0 +1,22 @@
+{% extends 'book_list/navbar.html' %} {% load static %} {% block content %}
+<div class="container text-center">
+  <div class="card w-50 mx-auto bg-dark bg-opacity-10">
+    {% with 'book_list/images/'|add:image as static_image %}
+    <img class="w-100 card-img-top" src="{% static static_image %}" />
+    {% endwith %}
+    <div class="card-body">
+      <p class="fs-2 fw-bolder">Book Details</p>
+      <p class="fs-4 text-info card-title">Title: {{book.name}}</p>
+      <p class="fs-4 text-danger card-text">
+        Author:
+        <a class="text-decoration-none text-black-50" href="{% url 'author' author.pk %}"
+          >{{author.name}}</a
+        >
+      </p>
+      <p class="fs-4 card-text">Published At: {{book.publish_date}}</p>
+      <p class="fs-4 card-text">Rate: {{book.appropriate}}</p>
+      <p class="fs-4 card-text">Price: {{book.price}}$</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
